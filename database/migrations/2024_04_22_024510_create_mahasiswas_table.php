@@ -11,14 +11,16 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('mahasiswas', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
-            $table->enum('akses',['admin','user'])->default('user');
-            $table->rememberToken();
+            $table->string('nim');
+            $table->string('nama');
+            $table->string('tempat');
+            $table->date('tanggal');
+            $table->string('alamat');
+            $table->string('jk');
+            $table->bigInteger('jurusans_id');
+            $table->string('agama');
             $table->timestamps();
         });
     }
@@ -28,6 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('mahasiswas');
     }
 };
